@@ -1,17 +1,33 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
+//css
+import './index.css';
+
+//component requires capital letter name
+function BookList(){
+  return (
+    <section className='bookList'> 
+      <Book />
+      <Book />
+      <Book />
+    </section>
+  );
+}
+
+const Book = () => {
+  return <article>
+    Here is the book
+    <Image></Image>
+    <Title />
+  </article>;
+}
+const Image = () => (
+<img src="https://interactive-examples.mdn.mozilla.net/media/cc0-images/grapefruit-slice-332-332.jpg" alt=''/> 
 );
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+const Title = () => <h1>Title</h1>;
+
+
+//Similar to appendTo
+ReactDom.render(<BookList />,document.getElementById('root'));
